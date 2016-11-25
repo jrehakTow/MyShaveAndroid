@@ -26,7 +26,7 @@ import java.util.Date;
  * <h1> My Shave of the day</h1>
  * This is the Android web client for the MSOTD web app.
  * This application serves as a native wrapper for the web app.
- * This code is heavily influenced by floryn90's Android-File_Chooser app
+ * This code is heavily adapted from floryn90's Android-File_Chooser app
  * found at 'https://github.com/OpenGeeksMe/Android-File-Chooser'
  * @author James Rehak
  */
@@ -217,9 +217,9 @@ public class MainActivity extends Activity {
 
     /**
      * On Key Down event has occurred. Used to enable system UI back button.
-     * @param keyCode
-     * @param event
-     * @return
+     * @param keyCode system key code identifier
+     * @param event system event
+     * @return true if back button was pressed.
      */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // Check if the key event was the Back button and if there's history
@@ -334,12 +334,12 @@ public class MainActivity extends Activity {
 
             captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
 
-            Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-            i.addCategory(Intent.CATEGORY_OPENABLE);
-            i.setType("image/*");
+            Intent imageIntent = new Intent(Intent.ACTION_GET_CONTENT);
+            imageIntent.addCategory(Intent.CATEGORY_OPENABLE);
+            imageIntent.setType("image/*");
 
             // Create file chooser intent
-            Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
+            Intent chooserIntent = Intent.createChooser(imageIntent, "Image Chooser");
 
             // Set camera intent to file chooser
             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS
