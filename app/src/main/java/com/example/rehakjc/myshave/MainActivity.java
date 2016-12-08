@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
         myWebView.setWebChromeClient(new MyWebChromeCLient());
         activateHardwareAcceleration();
 
-        myWebView.loadUrl("https://intense-dusk-79998.herokuapp.com/");
+        myWebView.loadUrl("https://mysotd.herokuapp.com/");
     }
 
 
